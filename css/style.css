@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+.navbar {
+    z-index: 1000;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card {
+    background-color: blue;
+    text-align: center;
+}
+
+.items-container {
+    overflow: auto;
+}
+
+.Cart {
+    background-color: gray;
+    margin: 20px auto;
+    display: flex;
+}
+
+#Product img {
+    width: 50px;
+}
+
+.btn-amount {
+    width: 1.75rem;
+    height: 1.75rem;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    color: white;
+}
+
+
+.amount-input {
+    width: 2rem;
+    height: 2rem;
+    border-radius: .24rem;
+}
