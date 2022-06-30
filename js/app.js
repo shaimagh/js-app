@@ -29,7 +29,7 @@ const items = [{
     image: "http://www.opaleinterim.fr/2020/wp-content/uploads/2019/01/sunglasses-2-300x300.jpg"
 }]
 
-function updateTotal(){
+function updateTotal() {
     const cartTotalText = document.getElementById("cart-total");
 
     const totals = document.getElementsByClassName("item-total")
@@ -37,10 +37,10 @@ function updateTotal(){
     let totalValue = 0
 
     for (let i = 0; i < totals.length; i++) {
-        totalValue += parseInt(totals[i].innerHTML,10);
+        totalValue += parseInt(totals[i].innerHTML, 10);
     }
 
-    cartTotalText.innerText  = `${totalValue} DT`
+    cartTotalText.innerText = `${totalValue} DT`
 }
 
 function increment(event, name, price) {
@@ -56,13 +56,13 @@ function increment(event, name, price) {
 
     const totalText = document.getElementById(totalTextId)
 
-    totalText.innerText = newValue * Number.parseInt(price,10)
+    totalText.innerText = newValue * Number.parseInt(price, 10)
 
     updateTotal()
 }
 
 
-function decrement(event, name,price) {
+function decrement(event, name, price) {
     const itemQuantityInputId = `quantity-${name}`
     const totalTextId = `total-${name}`
 
@@ -74,7 +74,7 @@ function decrement(event, name,price) {
 
         const totalText = document.getElementById(totalTextId)
 
-        totalText.innerText = newValue * Number.parseInt(price,10)
+        totalText.innerText = newValue * Number.parseInt(price, 10)
     }
 
     updateTotal()
@@ -109,6 +109,12 @@ function addToCart(event, name, price, image) {
 
         const cartItem = `
                         <li class="list-group-item d-flex align-items-center" id="${itemId}">
+                        <span type="button" onclick="removeFromCart(event,'${name}')" style="margin-right: 10px">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                            </svg>
+                        </span>
                             <img id="image" src="${image}" style="width: 48px;border-radius: .5rem;"/>
                             <span class="flex-grow-1 px-1">${name}</span>
 
@@ -121,6 +127,7 @@ function addToCart(event, name, price, image) {
 
                             <span class="pl-1 item-total" id="${totalId}" >${price}</span>
                             <span> DT</span>
+                           
                         </li>
     `;
 
